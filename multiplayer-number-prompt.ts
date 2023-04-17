@@ -37,7 +37,7 @@ namespace game {
 
             case 2:
                 t.colorInput = 8
-                t.colorBottomBackground = 2
+                t.colorBottomBackground = 8
                 break
 
             case 3:
@@ -48,6 +48,7 @@ namespace game {
             case 4:
                 t.colorInput = 7
                 t.colorBottomBackground = 7
+                t.colorCursor = 3
                 break
         }
         let p = new game.MultiplayerNumberPrompt(player, t);
@@ -144,6 +145,8 @@ namespace game {
         answerLength: number;
         result: string;
 
+        private player: number
+        
         private cursor: Sprite;
         private confirmButton: Sprite;
 
@@ -159,6 +162,7 @@ namespace game {
         private frameCount: number;
 
         constructor(player: number, theme?: PromptTheme) {
+            this.player = player
             if (theme) {
                 this.theme = theme;
             }
@@ -321,6 +325,8 @@ namespace game {
         }
 
         private registerHandlers() {
+            // Always allow default player (player 1) to operate keyboard,
+            // in case requested controller is not available.
             controller.up.onEvent(SYSTEM_KEY_DOWN, () => {
                 this.moveVertical(true);
             })
@@ -345,6 +351,86 @@ namespace game {
                 this.delete();
             });
 
+            switch (this.player) {
+                // Player 1 events are already connected; skip
+                case 2:
+                    controller.player2.up.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.moveVertical(true);
+                    })
+
+                    controller.player2.down.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.moveVertical(false);
+                    })
+
+                    controller.player2.right.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.moveHorizontal(true);
+                    });
+
+                    controller.player2.left.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.moveHorizontal(false);
+                    });
+
+                    controller.player2.A.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.confirm();
+                    });
+
+                    controller.player2.B.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.delete();
+                    });
+                    break
+
+                case 3:
+                    controller.player3.up.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.moveVertical(true);
+                    })
+
+                    controller.player3.down.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.moveVertical(false);
+                    })
+
+                    controller.player3.right.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.moveHorizontal(true);
+                    });
+
+                    controller.player3.left.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.moveHorizontal(false);
+                    });
+
+                    controller.player3.A.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.confirm();
+                    });
+
+                    controller.player3.B.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.delete();
+                    });
+                    break
+
+                case 4:
+                    controller.player4.up.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.moveVertical(true);
+                    })
+
+                    controller.player4.down.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.moveVertical(false);
+                    })
+
+                    controller.player4.right.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.moveHorizontal(true);
+                    });
+
+                    controller.player4.left.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.moveHorizontal(false);
+                    });
+
+                    controller.player4.A.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.confirm();
+                    });
+
+                    controller.player4.B.onEvent(SYSTEM_KEY_DOWN, () => {
+                        this.delete();
+                    });
+                    break
+            }
 
             this.frameCount = 0;
             this.blink = true;
