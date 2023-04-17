@@ -1,5 +1,5 @@
 {
-    "name": "MakeCode Arcade JavaScript Project",
+    "name": "pxt-arcade-multiplayer-prompt",
     "description": "",
     "dependencies": {
         "device": "*"
@@ -7,7 +7,9 @@
     "files": [
         "main.ts",
         "README.md",
-        "assets.json"
+        "assets.json",
+        "multiplayer-prompt.ts",
+        "multiplayer-number-prompt.ts"
     ],
     "testFiles": [
         "test.ts"
