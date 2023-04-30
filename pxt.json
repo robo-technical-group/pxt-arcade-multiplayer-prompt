@@ -10,13 +10,14 @@
         "README.md",
         "assets.json",
         "multiplayer-prompt.ts",
-        "multiplayer-number-prompt.ts"
+        "multiplayer-number-prompt.ts",
+        "multiplayer-dialogs.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.12.29",
+        "target": "1.12.30",
         "targetId": "arcade"
     },
     "supportedTargets": [
