@@ -6,7 +6,7 @@ namespace game {
      * @param answerLength The maximum number of characters the user can enter (1 - 24)
      */
     //% weight=10 help=game/ask-player-for-string
-    //% blockId=gameaskforstring block="ask player %player for string %message || and max length %answerLength"
+    //% blockId=gameaskplayerforstring block="ask player %player for string %message || and max length %answerLength"
     //% player.defl="1"
     //% player.min=1
     //% player.max=4

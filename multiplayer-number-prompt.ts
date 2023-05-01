@@ -1,12 +1,15 @@
 namespace game {
-
     /**
      * Ask the player for a number value.
+     * @param player The player (1 to 4) to prompt
      * @param message The message to display on the text-entry screen
      * @param answerLength The maximum number of digits the user can enter (1 - 10)
      */
-    //% weight=10 help=game/ask-for-number
-    //% blockId=gameaskfornumber block="ask for number %message || and max length %answerLength"
+    //% weight=10 help=game/ask-player-for-number
+    //% blockId=gameaskplayerfornumber block="ask player %player for number %message || and max length %answerLength"
+    //% player.defl="1"
+    //% player.min=1
+    //% player.max=4
     //% message.shadow=text
     //% message.defl=""
     //% answerLength.defl="6"
