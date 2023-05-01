@@ -230,7 +230,7 @@ namespace game {
      * @param subtitle
      */
     //% weight=90 help=game/splash
-    //% blockId=gameSplashForPlayer block="splash %title for player %player||%subtitle"
+    //% blockId=gameSplashForPlayer block="splash for player %player %title || %subtitle"
     //% player.defl="1"
     //% player.min=1
     //% player.max=4
